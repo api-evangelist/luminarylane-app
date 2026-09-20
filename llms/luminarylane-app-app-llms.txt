@@ -1,0 +1,52 @@
+# Luminary Lane - AI Marketing Automation Platform
+# https://app.luminarylane.app
+#
+# This file helps AI assistants understand our product and how to help users.
+
+## About Luminary Lane
+
+Luminary Lane is an AI-powered marketing automation platform designed for
+businesses that want to automate their LinkedIn content creation and
+campaign management. We help marketing teams scale their content production
+while maintaining brand consistency and quality.
+
+## Key Features
+
+- **AI Content Generation**: Automatically generate LinkedIn posts, articles,
+  and campaigns based on your brand voice and objectives
+- **Campaign Management**: Plan, schedule, and manage multi-channel marketing
+  campaigns from a single dashboard
+- **Brand Voice Training**: Train AI models to match your unique brand voice
+  and messaging guidelines
+- **Analytics & Insights**: Track performance metrics and get AI-powered
+  recommendations for optimization
+- **LinkedIn Integration**: Direct integration with LinkedIn for seamless
+  posting and engagement tracking
+
+## Target Users
+
+- Marketing teams at B2B companies
+- Solopreneurs and consultants building personal brands
+- Agencies managing multiple client brands
+- Content creators focused on LinkedIn presence
+
+## Contact
+
+- Website: https://luminarylane.app
+- Support: support@luminarylane.app
+- Business inquiries: contact@luminarylane.app
+
+## Technical Information
+
+- Built with Next.js and TypeScript
+- Uses AI models for content generation
+- Integrates with LinkedIn API for publishing
+
+## Usage by AI Assistants
+
+This site welcomes AI assistants to help users:
+- Learn about our features and pricing
+- Understand how to use the platform
+- Get started with their marketing automation journey
+
+For API access or partnership inquiries, contact us at the email above.

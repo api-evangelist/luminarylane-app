@@ -1,0 +1,55 @@
+generated: '2026-09-19'
+method: probed
+source: https://mcp.luminarylane.app/mcp
+format: json-error-object
+problem_details: false
+summary: >-
+  No OpenAPI exists to derive an error catalog from and no error reference is published, so this file
+  records the error shapes actually returned by the live MCP host on 2026-09-19. Every error is a bare
+  JSON object {"error": ..., "error_description"?: ...} served as application/json — the RFC 6750 bearer
+  error vocabulary on the 401s — never application/problem+json. JSON-RPC-level errors inside an
+  authenticated session could not be observed.
+problem_types:
+  - code: invalid_token
+    http_status: 401
+    title: Missing or invalid bearer token
+    body: '{"error":"invalid_token","error_description":"Missing Authorization header"}'
+    headers:
+      www_authenticate: 'Bearer error="invalid_token", error_description="Missing Authorization header", resource_metadata="https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp"'
+    remediation: >-
+      Follow the resource_metadata URL to the RFC 9728 document, then the RFC 8414 document it names,
+      register a client at /register (RFC 7591) and complete authorization_code + PKCE; or send a
+      user API key as X-API-Key instead.
+    observed_on:
+      - POST /mcp initialize (no credential)
+      - POST /mcp tools/list (no credential)
+  - code: invalid_api_key
+    http_status: 401
+    title: Invalid API key
+    body: '{"error":"Invalid API key"}'
+    remediation: Generate a fresh key at https://app.luminarylane.app/profile/api-keys (keys start with ll_mcp_ and are shown once).
+    observed_on:
+      - POST /mcp tools/list with X-API-Key: invalid
+  - code: invalid_session
+    http_status: 400
+    title: Invalid session
+    body: '{"error":"Invalid session"}'
+    remediation: Send the Mcp-Session-Id returned by a successful initialize; a bare GET on /mcp is treated as an SSE resume for a session the server does not know.
+    observed_on:
+      - GET /mcp
+  - code: invalid_request
+    http_status: 400
+    title: Authorization request validation failed
+    body_excerpt: '{"error":"invalid_request","error_description":"[ { \"expected\": \"string\", \"code\": \"invalid_type\", \"path\": [ \"client_id\" ], ... } ]"}'
+    remediation: Supply client_id, redirect_uri, response_type=code, code_challenge and code_challenge_method=S256 on /authorize.
+    observed_on:
+      - GET /authorize (no parameters)
+    note: error_description embeds a zod validation issue array, so the OAuth error surface is machine-readable but non-standard in its detail format.
+  - code: not_found
+    http_status: 404
+    title: Cannot GET <path>
+    content_type: text/html; charset=utf-8
+    body_excerpt: '<pre>Cannot GET /</pre>'
+    remediation: Only /mcp, /health, /authorize, /token, /register, /revoke and the two /.well-known documents exist on this host.
+    observed_on:
+      - GET / and every unknown path on mcp.luminarylane.app

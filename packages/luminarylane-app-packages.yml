@@ -1,0 +1,265 @@
+generated: '2026-09-19'
+method: searched
+source: https://www.luminarylane.app/engineering/ (the provider's own list of its public MCP servers) cross-checked
+  against registry.npmjs.org, pypi.org and api.github.com/orgs/luminarylane on 2026-09-19
+docs: https://www.luminarylane.app/engineering/
+github_org: https://github.com/luminarylane
+summary:
+  package_count: 15
+  npm: 11
+  pypi: 3
+  github_only: 1
+  official: 15
+  sdk_count: 0
+  note: 'NONE of these packages is a client SDK for a Luminary Lane API, so no SDKs pointer is emitted. They are
+    first-party, MIT-licensed, standalone stdio MCP servers that give an agent access to OTHER companies'' platforms
+    (social networks, CMSs, analytics, media generation) — the building blocks the provider says its own Lane agent
+    runs on ("Output Shape Is Cost: Why We Hand-Roll Our MCP Servers", 2026-04-11) — plus one Claude plugin that
+    connects to the provider''s remote MCP server. Every version/published pair was read from the registry metadata
+    endpoint (registry.npmjs.org/<pkg>, pypi.org/pypi/<pkg>/json) on 2026-09-19. Publishing is recent and active:
+    the newest npm releases are 2026-08-25, the oldest first-published npm package dates from 2026 and several carry
+    50-70 patch releases.'
+packages:
+- language: javascript
+  name: '@luminarylane/bluesky-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/bluesky-mcp-server
+  install: npx -y @luminarylane/bluesky-mcp-server
+  bin: luminarylane-bluesky-mcp
+  repository: https://github.com/luminarylane/bluesky-mcp-server
+  version: 1.0.70
+  published: '2026-08-25'
+  first_published: '2026-08-05'
+  release_count: 5
+  license: MIT
+  wraps: Bluesky (AT Protocol)
+  description: Standalone Bluesky MCP Server — SENSE + ACT tools for the AT Protocol
+- language: javascript
+  name: '@luminarylane/design-style-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/design-style-mcp-server
+  install: npx -y @luminarylane/design-style-mcp-server
+  bin: luminarylane-design-style-mcp
+  repository: https://github.com/luminarylane/design-style-mcp-server
+  version: 1.0.4
+  published: '2026-08-25'
+  first_published: '2026-08-05'
+  release_count: 4
+  license: MIT
+  wraps: Luminary Lane design-style token service
+  description: Standalone Design Style MCP Server — recommend and retrieve design style tokens for AI content generation
+- language: javascript
+  name: '@luminarylane/facebook-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/facebook-mcp-server
+  install: npx -y @luminarylane/facebook-mcp-server
+  bin: luminarylane-facebook-mcp
+  repository: https://github.com/luminarylane/facebook-mcp-server
+  version: 1.6.9
+  published: '2026-08-05'
+  first_published: '2026-08-05'
+  release_count: 3
+  license: MIT
+  wraps: Facebook Pages (Graph API)
+  description: Standalone Facebook Pages MCP Server — SENSE + ACT tools for the Graph API
+- language: javascript
+  name: '@luminarylane/fact-checker-mcp'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/fact-checker-mcp
+  install: npx -y @luminarylane/fact-checker-mcp
+  bin: luminarylane-fact-checker-mcp
+  repository: https://github.com/luminarylane/fact-checker-mcp
+  version: 1.0.2
+  published: '2026-08-25'
+  first_published: '2026-08-06'
+  release_count: 3
+  license: MIT
+  wraps: claim verification (SENSE + GATE)
+  description: Fact-Checker MCP Server - SENSE + GATE verification service with semantic cache
+- language: javascript
+  name: '@luminarylane/fathom-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/fathom-mcp-server
+  install: npx -y @luminarylane/fathom-mcp-server
+  bin: luminarylane-fathom-mcp
+  repository: https://github.com/luminarylane/fathom-mcp-server
+  version: 1.0.1
+  published: '2026-08-05'
+  first_published: '2026-08-05'
+  release_count: 2
+  license: MIT
+  wraps: Fathom meeting intelligence
+  description: Standalone Fathom MCP Server — meeting intelligence SENSE tools
+- language: javascript
+  name: '@luminarylane/gmail-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/gmail-mcp-server
+  install: npx -y @luminarylane/gmail-mcp-server
+  bin: luminarylane-gmail-mcp
+  repository: https://github.com/luminarylane/gmail-mcp-server
+  version: 1.0.2
+  published: '2026-08-25'
+  first_published: '2026-08-25'
+  release_count: 3
+  license: MIT
+  wraps: Gmail (draft-only)
+  description: Standalone Gmail MCP Server — draft-only tool for the Gmail API
+- language: javascript
+  name: '@luminarylane/instagram-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/instagram-mcp-server
+  install: npx -y @luminarylane/instagram-mcp-server
+  bin: luminarylane-instagram-mcp
+  repository: https://github.com/luminarylane/instagram-mcp-server
+  version: 1.6.10
+  published: '2026-08-05'
+  first_published: '2026-08-05'
+  release_count: 3
+  license: MIT
+  wraps: Instagram (Graph API)
+  description: Standalone Instagram MCP Server — SENSE + ACT tools for the Graph API
+- language: javascript
+  name: '@luminarylane/linkedin-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/linkedin-mcp-server
+  install: npx -y @luminarylane/linkedin-mcp-server
+  bin: luminarylane-linkedin-mcp
+  repository: https://github.com/luminarylane/linkedin-mcp-server
+  version: 1.0.50
+  published: '2026-08-25'
+  first_published: '2026-08-05'
+  release_count: 5
+  license: MIT
+  wraps: LinkedIn API
+  description: Standalone LinkedIn MCP Server — SENSE + ACT tools for the LinkedIn API
+- language: javascript
+  name: '@luminarylane/sanity-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/sanity-mcp-server
+  install: npx -y @luminarylane/sanity-mcp-server
+  bin: luminarylane-sanity-mcp
+  repository: https://github.com/luminarylane/mcp-sanity
+  version: 1.0.0
+  published: '2026-08-06'
+  first_published: '2026-08-06'
+  release_count: 1
+  license: MIT
+  wraps: Sanity CMS
+  description: Standalone MCP server for managing Sanity-backed blog content
+- language: javascript
+  name: '@luminarylane/wordpress-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/wordpress-mcp-server
+  install: npx -y @luminarylane/wordpress-mcp-server
+  bin: luminarylane-wordpress-mcp
+  repository: https://github.com/luminarylane/wordpress-mcp-server
+  version: 1.0.4
+  published: '2026-08-25'
+  first_published: '2026-08-05'
+  release_count: 3
+  license: MIT
+  wraps: WordPress REST API
+  description: WordPress MCP Server — blog publishing via REST API + Application Passwords
+- language: javascript
+  name: '@luminarylane/x-twitter-mcp-server'
+  registry: npm
+  kind: mcp-server (stdio)
+  official: true
+  url: https://www.npmjs.com/package/@luminarylane/x-twitter-mcp-server
+  install: npx -y @luminarylane/x-twitter-mcp-server
+  bin: luminarylane-x-twitter-mcp
+  repository: https://github.com/luminarylane/x-twitter-mcp-server
+  version: 1.0.68
+  published: '2026-08-25'
+  first_published: '2026-08-05'
+  release_count: 4
+  license: MIT
+  wraps: X API v2
+  description: Standalone X/Twitter MCP Server — SENSE + ACT tools for the X API v2
+- language: python
+  name: luminarylane-ga4-mcp
+  registry: pypi
+  kind: mcp-server (stdio)
+  official: true
+  url: https://pypi.org/project/luminarylane-ga4-mcp/
+  install: uvx --from luminarylane-ga4-mcp luminarylane-ga4-mcp
+  repository: https://github.com/luminarylane/ga4-mcp
+  version: 1.0.1
+  published: '2026-08-06'
+  release_count: 1
+  license: MIT
+  wraps: Google Analytics 4 Data API
+  description: Google Analytics 4 tools for Model Context Protocol clients
+  author: Luminary Lane
+- language: python
+  name: luminarylane-gsc-mcp
+  registry: pypi
+  kind: mcp-server (stdio)
+  official: true
+  url: https://pypi.org/project/luminarylane-gsc-mcp/
+  install: uvx --from luminarylane-gsc-mcp luminarylane-gsc-mcp
+  repository: https://github.com/luminarylane/gsc-mcp
+  version: 1.0.2
+  published: '2026-08-05'
+  release_count: 1
+  license: MIT
+  wraps: Google Search Console API
+  description: Google Search Console tools for Model Context Protocol clients
+  author: Luminary Lane
+  note: Distinct from the unrelated PyPI package gsc-mcp (author Jay Rockliffe), which is NOT Luminary Lane's. The
+    README credits MCP-GSC by Amin Foroutan as the base.
+- language: python
+  name: fal-mcp-server
+  registry: pypi
+  kind: mcp-server (stdio + sse)
+  official: true
+  url: https://pypi.org/project/fal-mcp-server/
+  install: pip install fal-mcp-server
+  repository: https://github.com/luminarylane/fal-mcp-server
+  version: 1.18.0
+  published: '2025-12-23'
+  release_count: 35
+  license: MIT
+  wraps: fal.ai media generation
+  description: MCP server for Fal.ai - Generate images, videos, music and audio with AI models
+  note: PyPI project_urls point at github.com/raveenb/fal-mcp-server (Raveen Beemsingh, founder/CEO of Luminary
+    Lane per his GitHub profile); the organisation repo luminarylane/fal-mcp-server carries the same pyproject (name
+    fal-mcp-server, version 1.18.0), a GitHub Pages homepage under luminarylane.github.io and is not a fork. Marked
+    official on that basis; last release predates the org's other packages by eight months.
+- language: markdown+json
+  name: lane-plugin
+  registry: github
+  kind: claude-plugin (Cowork / Claude Desktop)
+  official: true
+  url: https://github.com/luminarylane/lane-plugin
+  install: Install from GitHub in Claude Desktop; configure the MCP server with npx -y mcp-remote https://mcp.luminarylane.app/mcp
+    --header X-API-Key:${LANE_API_KEY}
+  repository: https://github.com/luminarylane/lane-plugin
+  version: 1.0.0
+  published: '2026-02-21'
+  license: Apache-2.0 (LICENSE file; plugin.json says UNLICENSED)
+  wraps: Luminary Lane remote MCP server (the provider's own data)
+  description: Lane Cowork Plugin — Brand intelligence for Claude. Draft on-brand content, check voice alignment,
+    and execute campaigns.
+  note: 'No registry metadata endpoint: version read from .claude-plugin/plugin.json, published date is the last
+    push to the repository (2026-02-21). The README directs installs to github.com/raveenb/lane-plugin.'

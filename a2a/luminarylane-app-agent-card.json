@@ -1,0 +1,176 @@
+{
+  "name": "Lane",
+  "description": "AI CMO that never sleeps. Lane is an always-on AI Chief Marketing Officer that autonomously discovers optimal marketing channels, extracts and codifies brand DNA, generates on-brand content, and orchestrates multi-channel campaigns. Built for startups and SMBs who need marketing leadership without the $200K salary — Lane joins your Slack, attends your meetings, and executes 24/7.",
+  "url": "https://www.luminarylane.app",
+  "provider": {
+    "organization": "Luminary Lane",
+    "url": "https://www.luminarylane.app"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://www.luminarylane.app/a2a/",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "authentication": {
+    "schemes": [],
+    "credentials": null
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "cmo_strategy",
+      "name": "CMO Strategy & Advisory",
+      "description": "Act as your AI Chief Marketing Officer — provide strategic marketing guidance, budget allocation recommendations, growth planning, and competitive positioning. Analyzes your business context to deliver CMO-level thinking at a fraction of the cost.",
+      "tags": [
+        "cmo",
+        "strategy",
+        "advisory",
+        "growth",
+        "budget",
+        "positioning"
+      ],
+      "examples": [
+        "What should our marketing strategy be for Q2 with a $10k budget?",
+        "How should we position against competitors in the AI space?",
+        "Prioritize our marketing initiatives for maximum growth this quarter"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "brand_analysis",
+      "name": "Brand Analysis",
+      "description": "Extract and codify brand DNA including voice, tone, personas, visual guidelines, and messaging frameworks. Analyzes existing brand assets to create a comprehensive brand profile that ensures consistency across all channels.",
+      "tags": [
+        "brand",
+        "analysis",
+        "voice",
+        "tone",
+        "personas",
+        "guidelines"
+      ],
+      "examples": [
+        "Analyze our brand voice from our website and social media presence",
+        "Extract brand personas and tone guidelines from our existing content",
+        "Create a brand DNA profile for our startup"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "channel_discovery",
+      "name": "Channel Discovery",
+      "description": "Identify optimal marketing channels using the 19-channel traction framework. Evaluates channel fit based on your brand, audience, budget, and growth stage to recommend the highest-impact marketing channels.",
+      "tags": [
+        "channels",
+        "traction",
+        "marketing",
+        "discovery",
+        "growth"
+      ],
+      "examples": [
+        "Which marketing channels are best for a B2B SaaS startup with a $5k monthly budget?",
+        "Evaluate our channel mix against the traction framework",
+        "Recommend the top 3 channels for reaching enterprise buyers"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "content_generation",
+      "name": "Content Generation",
+      "description": "Generate on-brand content across social media, email, blog, and other marketing channels. Uses brand DNA to ensure every piece of content matches your voice, tone, and messaging guidelines.",
+      "tags": [
+        "content",
+        "generation",
+        "social",
+        "email",
+        "blog",
+        "copywriting"
+      ],
+      "examples": [
+        "Write a LinkedIn post announcing our Series A funding",
+        "Generate a week of social media content for our product launch",
+        "Create an email nurture sequence for trial users"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "campaign_orchestration",
+      "name": "Campaign Orchestration",
+      "description": "Plan and coordinate multi-channel marketing campaigns with unified messaging, scheduling, and performance tracking. Aligns content across channels for maximum impact and consistent brand presence.",
+      "tags": [
+        "campaign",
+        "orchestration",
+        "multi-channel",
+        "planning",
+        "scheduling"
+      ],
+      "examples": [
+        "Plan a product launch campaign across email, social, and blog",
+        "Orchestrate a Q1 awareness campaign for our new feature",
+        "Create a coordinated content calendar for the next 30 days"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "a2a_readiness",
+      "name": "A2A Readiness Assessment",
+      "description": "Assess and improve your brand's readiness for AI agent discovery and the agentic web. Evaluates structured data, agent cards, LLMs.txt, and other signals that help AI agents understand and recommend your brand.",
+      "tags": [
+        "a2a",
+        "readiness",
+        "agentic-web",
+        "discovery",
+        "structured-data"
+      ],
+      "examples": [
+        "How ready is our brand for AI agent discovery?",
+        "What do we need to improve for the agentic web?",
+        "Audit our site for AI agent discoverability signals"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ]
+}

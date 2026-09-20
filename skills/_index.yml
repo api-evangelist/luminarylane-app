@@ -1,0 +1,59 @@
+generated: '2026-09-19'
+method: searched
+source: https://github.com/luminarylane/lane-plugin
+provider_published: true
+note: >-
+  Luminary Lane publishes its own agent skill and three slash-command procedures in the open-source
+  lane-plugin repository (a Claude Desktop / Cowork plugin, Apache-2.0 LICENSE in the repo, plugin.json
+  version 1.0.0, marketplace.json owner "Luminary Lane" support@luminarylane.app). All four files were
+  fetched from raw.githubusercontent.com on 2026-09-19 and saved VERBATIM; nothing here was generated,
+  because the provider ships no OpenAPI to ground a generated skill in. The plugin binds to the remote
+  MCP server https://mcp.luminarylane.app/mcp with an X-API-Key header (see .mcp.json in the repo and
+  mcp/luminarylane-app-mcp.yml). CAVEAT for agents: the tool names these skills reference (listBrands,
+  getVoiceAndTone, getCampaignContext, checkBrandVoice ...) are camelCase and do NOT appear in the live
+  server's 2026-09-19 /health tool list, which is snake_case (workspace_list_brands, foundation_get_voice,
+  actions_list ...). Read the live tools/list before following these steps literally.
+skills:
+  - file: luminarylane-app-brand-intelligence.md
+    name: luminary-lane-brand-intelligence
+    method: searched
+    source: https://raw.githubusercontent.com/luminarylane/lane-plugin/main/skills/SKILL.md
+    description: >-
+      Provider-published SKILL.md: load brand context (brands, foundation, voice and tone, objectives,
+      personas, campaign context, recent content) from the Lane MCP server before drafting, and check
+      drafts against the brand voice.
+    api: Luminary Lane MCP Server
+    mcp_tools_named: 10
+    operations: []
+  - file: luminarylane-app-draft-post.md
+    name: draft-post
+    method: searched
+    source: https://raw.githubusercontent.com/luminarylane/lane-plugin/main/commands/draft-post.md
+    description: Provider-published /draft-post command — draft a LinkedIn post in the brand's voice and active campaign context.
+    api: Luminary Lane MCP Server
+    operations: []
+  - file: luminarylane-app-check-voice.md
+    name: check-voice
+    method: searched
+    source: https://raw.githubusercontent.com/luminarylane/lane-plugin/main/commands/check-voice.md
+    description: Provider-published /check-voice command — score a piece of text against the brand voice and return a revised version.
+    api: Luminary Lane MCP Server
+    operations: []
+  - file: luminarylane-app-campaign-brief.md
+    name: campaign-brief
+    method: searched
+    source: https://raw.githubusercontent.com/luminarylane/lane-plugin/main/commands/campaign-brief.md
+    description: Provider-published /campaign-brief command — assemble a campaign brief from brand foundation, personas, campaign strategy and recent content.
+    api: Luminary Lane MCP Server
+    operations: []
+plugin:
+  name: lane-cowork-plugin
+  version: 1.0.0
+  manifest: https://github.com/luminarylane/lane-plugin/blob/main/.claude-plugin/plugin.json
+  marketplace: https://github.com/luminarylane/lane-plugin/blob/main/.claude-plugin/marketplace.json
+  mcp_config: https://github.com/luminarylane/lane-plugin/blob/main/.mcp.json
+  install_note: >-
+    The README says to install from https://github.com/raveenb/lane-plugin (the founder Raveen
+    Beemsingh's personal account); the organisation copy at github.com/luminarylane/lane-plugin is
+    not marked as a fork. Last push 2026-02-21.
+  license_note: plugin.json says UNLICENSED; the repository LICENSE file is Apache-2.0.

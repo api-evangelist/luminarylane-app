@@ -1,0 +1,65 @@
+generated: '2026-09-19'
+method: searched
+source: >-
+  https://www.luminarylane.app/faq/, https://www.luminarylane.app/terms-of-use/, https://github.com/luminarylane/docs/releases,
+  https://mcp.luminarylane.app/health and https://app.luminarylane.app/api/health, probed 2026-09-19
+summary: >-
+  Luminary Lane publishes no API versioning policy, no deprecation policy, no Sunset/Deprecation header
+  contract and no status page. The one machine-facing surface (the remote MCP server) reports itself as
+  version 1.0.0 and is not versioned in its URL. Product change is announced on the blog and in the docs
+  repository's GitHub Releases. Nothing here earns a StatusPage or Deprecation pointer.
+versioning:
+  scheme: none published
+  current_versions:
+    - surface: MCP server (https://mcp.luminarylane.app/mcp)
+      version: 1.0.0
+      source: https://mcp.luminarylane.app/health (server field luminary-mcp-server, version 1.0.0)
+    - surface: Product web app (app.luminarylane.app)
+      version: 0.1.0
+      source: https://app.luminarylane.app/api/health ("version":"0.1.0","service":"web","environment":"production")
+    - surface: Marketing site build
+      version: v2026.08.23.248
+      source: Site footer on every www.luminarylane.app page
+    - surface: A2A agent card
+      version: 1.0.0
+      source: a2a/luminarylane-app-agent-card.json (version field)
+  url_versioning: false
+  header_versioning: unknown (schemas gated)
+  policy_url: null
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  deprecation_header: unknown
+  deprecated_operations: []
+  note: >-
+    No deprecation policy is published. The Terms of Use say only that "Luminary Lane reserves the right
+    to modify pricing and will notify users of any changes" and that "Major updates will be communicated
+    via email or website notifications" (Privacy Policy) — notice commitments about the product, not an
+    API deprecation contract.
+sla:
+  published: false
+  support_hours: Mon-Fri, 9am-6pm SGT; "We typically respond within 24 hours during business days" (https://www.luminarylane.app/contact/)
+  refund_window: 14 days of initial purchase (https://www.luminarylane.app/refund-policy/)
+  uptime_commitment: null
+status_page:
+  url: null
+  probed:
+    - url: https://luminarylane.app/status
+      status: 404
+    - url: https://www.luminarylane.app/status
+      status: 404
+  health_endpoints:
+    - url: https://mcp.luminarylane.app/health
+      status: 200
+      note: Anonymous JSON health with activeSessions and tool names.
+    - url: https://app.luminarylane.app/api/health
+      status: 200
+      note: Anonymous JSON health with database, redis and auth0 dependency checks.
+release_channels:
+  - name: Blog
+    url: https://www.luminarylane.app/blog/
+    rss: https://www.luminarylane.app/rss.xml
+  - name: Docs releases
+    url: https://github.com/luminarylane/docs/releases
+  - name: GitHub organisation (per-package CHANGELOG.md and releases)
+    url: https://github.com/luminarylane

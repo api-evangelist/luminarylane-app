@@ -1,0 +1,281 @@
+generated: '2026-09-19'
+method: probed
+status: published
+source: https://mcp.luminarylane.app/health
+docs: https://github.com/luminarylane/lane-plugin
+summary: 'Luminary Lane operates ONE remote Model Context Protocol server, https://mcp.luminarylane.app/mcp (Streamable
+  HTTP, Express-hosted, server name luminary-mcp-server v1.0.0), that exposes the Lane workspace — brands, brand
+  foundation, traction and presence plans, the action approval queue and integrations — to MCP clients. It is authenticated:
+  an anonymous initialize or tools/list returns 401 invalid_token with an RFC 9728 resource_metadata pointer, and
+  an X-API-Key header is accepted as an alternative credential (keys prefixed ll_mcp_, generated at app.luminarylane.app/profile/api-keys).
+  The anonymous /health endpoint publishes the 46 registered tool NAMES, so the tool list below is real but the
+  input schemas are gated. Separately, the company publishes 14 open-source stdio MCP servers on npm/PyPI that wrap
+  third-party marketing platforms (LinkedIn, X, Bluesky, Facebook, Instagram, WordPress, Sanity, Gmail, Fathom,
+  GA4, Search Console, fal.ai, a fact-checker and a design-style service); those are catalogued in packages/ and
+  do not reach Luminary Lane data.'
+deployment:
+  mode: remote
+  endpoint: https://mcp.luminarylane.app/mcp
+  auth: oauth
+  verified: probed
+  note: 'Remote only for the provider''s own data: an MCP client POSTs directly to the endpoint. auth is oauth because
+    the live 401 advertises OAuth 2.1 discovery (WWW-Authenticate resource_metadata -> RFC 9728 -> RFC 8414 with
+    PKCE S256 and RFC 7591 dynamic client registration, which answered 201 anonymously); the same endpoint also
+    accepts a static X-API-Key (ll_mcp_...) per the provider''s lane-plugin README and .mcp.json, and rejects a
+    bad one with 401 {"error":"Invalid API key"}. The 14 npm/PyPI stdio packages are NOT this server and do not
+    make mode ''both'': they are connectors to other companies'' platforms and never touch mcp.luminarylane.app.'
+servers:
+- id: luminary-mcp-server
+  name: Luminary Lane MCP Server
+  endpoint: https://mcp.luminarylane.app/mcp
+  transport: streamable-http
+  auth: oauth2 (authorization_code + PKCE) or X-API-Key
+  status: live
+  server_version: 1.0.0
+  probe:
+    fetched: '2026-09-19'
+    initialize:
+      method: POST initialize
+      http_status: 401
+      www_authenticate: Bearer error="invalid_token", error_description="Missing Authorization header", resource_metadata="https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp"
+      body: '{"error":"invalid_token","error_description":"Missing Authorization header"}'
+    tools_list_anonymous:
+      method: POST tools/list
+      http_status: 401
+    tools_list_bad_api_key:
+      method: 'POST tools/list with X-API-Key: invalid'
+      http_status: 401
+      body: '{"error":"Invalid API key"}'
+    get_endpoint:
+      method: GET /mcp
+      http_status: 400
+      body: '{"error":"Invalid session"}'
+      note: A GET without Mcp-Session-Id is rejected as a missing session rather than 404, consistent with a Streamable
+        HTTP server that supports SSE resumption.
+    health:
+      method: GET /health
+      http_status: 200
+      file: mcp/luminarylane-app-mcp-health.json
+      active_sessions: 0
+  discovery:
+    protected_resource_metadata: https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp
+    authorization_server_metadata: https://mcp.luminarylane.app/.well-known/oauth-authorization-server
+    registration_endpoint: https://mcp.luminarylane.app/register
+    files:
+    - well-known/luminarylane-app-oauth-protected-resource.json
+    - well-known/luminarylane-app-oauth-authorization-server.json
+  client_config:
+    source: https://github.com/luminarylane/lane-plugin/blob/main/.mcp.json
+    mcp_json:
+      mcpServers:
+        lane:
+          type: http
+          url: https://mcp.luminarylane.app/mcp
+          headers:
+            X-API-Key: ${LANE_API_KEY}
+    claude_desktop_bridge: npx -y mcp-remote https://mcp.luminarylane.app/mcp --header X-API-Key:${LANE_API_KEY}
+  tool_count: 46
+  tools:
+  - name: workspace_list_brands
+    family: workspace
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_get
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_get_goal
+    family: traction-plan
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_get_plan
+    family: traction-plan
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_get_settings
+    family: traction-plan
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_update_goal
+    family: traction-plan
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_set_channel_ring
+    family: traction-plan
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: traction_update_settings
+    family: traction-plan
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_get_status
+    family: lane-agent-runtime
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_get_goal
+    family: presence-cadence
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_get_plan
+    family: presence-cadence
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_get_settings
+    family: presence-cadence
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_set_goal_inclusion
+    family: presence-cadence
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_update_plan
+    family: presence-cadence
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: presence_update_settings
+    family: presence-cadence
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_get_competitor_settings
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_update_competitor_settings
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_upsert_market_event
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_delete_market_event
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_upsert_competitor
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_delete_competitor
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_list_objectives
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_list_personas
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_get_voice
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_analyze_gaps
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_upsert_objective
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_upsert_persona
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_update_voice
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_delete_objective
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_delete_persona
+    family: brand-foundation
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_record_cycle
+    family: lane-agent-runtime
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_upsert_signal_matches
+    family: lane-agent-runtime
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_get_cycle_history
+    family: lane-agent-runtime
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_review
+    family: action-queue
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_update_content
+    family: action-queue
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: paid_ads_update_content
+    family: paid-ads
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_report_outcome
+    family: action-queue
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: integrations_list
+    family: integrations
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_get_settings
+    family: lane-agent-runtime
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_get_feedback
+    family: action-queue
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: foundation_list_market_events
+    family: brand-foundation
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_send_notification
+    family: action-queue
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_send_outreach
+    family: action-queue
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: lane_run_now
+    family: lane-agent-runtime
+    access: write
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_list
+    family: action-queue
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  - name: actions_get
+    family: action-queue
+    access: read
+    input_schema: gated — requires an authenticated tools/list
+  tool_families:
+  - action-queue
+  - brand-foundation
+  - integrations
+  - lane-agent-runtime
+  - paid-ads
+  - presence-cadence
+  - traction-plan
+  - workspace
+  schema_note: Tool names come from the anonymous /health response on 2026-09-19. inputSchema, descriptions and
+    annotations require an authenticated tools/list and were NOT fetched — nothing below is inferred beyond the
+    family/read-write split implied by the verb in each name.
+  naming_note: The provider's lane-plugin SKILL.md (2026-02) documents camelCase tools — listBrands, getBrandFoundation,
+    getVoiceAndTone, getObjectives, getPersonas, analyzeGaps, listCampaigns, getCampaignContext, getRecentContent,
+    checkBrandVoice. None of those names appear in the live /health tool list, which is snake_case and organised
+    by workspace/foundation/traction/presence/actions/lane families. The live names are authoritative; the plugin's
+    skill text is stale relative to the server.
+stdio_packages_note: See packages/luminarylane-app-packages.yml — 14 first-party open-source stdio MCP servers for
+  third-party platforms (mode local-stdio each), plus the Claude Cowork plugin that wraps this remote server.

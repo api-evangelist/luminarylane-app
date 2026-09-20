@@ -1,0 +1,26 @@
+generated: '2026-09-19'
+method: searched
+source: https://github.com/luminarylane/lane-plugin
+docs: https://github.com/luminarylane/docs
+limit_count: 0
+summary: >-
+  No request rate limit is published for the remote MCP server at https://mcp.luminarylane.app/mcp, and
+  no RateLimit-*, X-RateLimit-* or Retry-After header appeared on any of the anonymous responses observed
+  (401 on initialize/tools/list, 400 on GET /mcp, 200 on /health). The commercial ceiling is the weekly
+  Lane Cycle quota per plan (see plans/), which governs how often the Lane agent runs, not how often an
+  MCP client may call a tool. An honest zero: the limits may exist server-side but are not documented.
+rate_limits: []
+headers_observed: []
+exhaustion_status: unknown
+quota_limits:
+  - name: Lane Cycles per week
+    scope: per-account (allocated across active spaces)
+    window: Monday 00:00 to next Monday 00:00 in the account timezone
+    limit: 1 / 5 / 15 / 35 by plan (Discover / Growth / Scale / Agency)
+    on_exhaustion: '"Lane pauses scheduled runs until the fresh budget opens Monday. Anything already queued picks up in the new week."'
+    source: https://github.com/luminarylane/docs/blob/main/account-and-billing.md
+    note: A product quota on agent runs, not an API request limit.
+third_party_package_note: >-
+  The provider's open-source stdio MCP servers document client-side token-bucket limiters and 429 retry
+  for the third-party APIs they wrap (e.g. GA4's 10 concurrent requests, LinkedIn auto-retry on 429);
+  those are the upstream platforms' limits, not Luminary Lane's.

@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Luminary Lane",
+  "name_for_model": "luminary_lane",
+  "description_for_human": "AI-powered brand automation platform — helps brands manage marketing, content, and growth.",
+  "description_for_model": "Luminary Lane is an AI brand automation platform that helps brands plan, create, and manage marketing content and campaigns across channels while maintaining a consistent brand voice. No authenticated plugin API is currently exposed.",
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://app.luminarylane.app/logo.svg",
+  "contact_email": "support@luminarylane.app",
+  "legal_info_url": "https://luminarylane.app"
+}

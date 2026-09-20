@@ -1,0 +1,92 @@
+generated: '2026-09-19'
+method: searched
+source: >-
+  Live MCP endpoint behaviour (https://mcp.luminarylane.app/mcp, /health), the provider's lane-plugin
+  README and .mcp.json, and the product docs (https://github.com/luminarylane/docs) — 2026-09-19
+summary: >-
+  Luminary Lane's only public machine surface is a remote MCP server whose tool schemas are gated behind
+  authentication, so most runtime conventions (pagination, expansion, request-id tracing, idempotency
+  headers) cannot be observed and are recorded as unknown rather than guessed. What IS documented is the
+  product's approval model: every consequential action Lane proposes waits in a human approval queue,
+  which is a pre-action gate rather than a post-action reversal.
+auth:
+  style: OAuth 2.1 bearer (authorization_code + PKCE, dynamic client registration) OR static X-API-Key header (ll_mcp_ prefix)
+  ref: authentication/luminarylane-app-authentication.yml
+transport:
+  protocol: MCP Streamable HTTP (JSON-RPC 2.0 over POST; SSE resumption implied by the session check on GET)
+  endpoint: https://mcp.luminarylane.app/mcp
+  session_header: Mcp-Session-Id (GET without it returns 400 {"error":"Invalid session"})
+idempotency:
+  coverage: none
+  mechanism: null
+  scope: []
+  retention: null
+  note: >-
+    No idempotency key, replay-protection header or deduplication rule is documented anywhere public, and
+    the tool input schemas that could carry one are auth-gated. Recorded as none because nothing
+    documented exists; this is an absence finding, not an observed rejection of a replayed call.
+pagination:
+  style: unknown
+  note: Tool names such as actions_list, foundation_list_personas and integrations_list imply list tools, but their parameters are gated.
+field_expansion: unknown
+metadata: unknown
+request_id:
+  header: unknown
+  note: No request-id or trace header was present on the anonymous 401/400/200 responses observed (only etag, x-powered-by Express, access-control-allow-origin *).
+versioning:
+  ref: lifecycle/luminarylane-app-lifecycle.yml
+  note: No version in the URL or documented header; server self-reports 1.0.0.
+error_envelope:
+  shape: '{"error": "<code or message>", "error_description": "<text>"}'
+  content_type: application/json; charset=utf-8
+  problem_details: false
+  ref: errors/luminarylane-app-problem-types.yml
+rate_limit_signaling:
+  headers: none observed
+  ref: rate-limits/luminarylane-app-rate-limits.yml
+reversibility:
+  grade: documented
+  applies: true
+  write_surface: >-
+    Per the anonymous /health tool list the server exposes write tools — foundation_upsert_*/delete_*
+    (objectives, personas, competitors, market events), traction_update_goal, presence_update_plan,
+    actions_update_content, actions_send_notification, actions_send_outreach, lane_run_now — so the API
+    is not read-only and reversibility is not na.
+  reversal_paths:
+    - surface: Actions (proposals Lane drafts — posts, emails, campaigns, outreach)
+      operation: approve / adjust / dismiss in the approval queue BEFORE execution
+      operation_id: null
+      window: null
+      docs: https://github.com/luminarylane/docs/blob/main/brand-onboarding.md
+      note: >-
+        Documented verbatim: "Actions — your approval queue. Every proposal Lane drafts lands here for you
+        to approve, adjust, or dismiss." and "Nothing ships without you." This is a pre-action gate; once
+        an action has been published or sent, no undo, recall or rollback operation is documented.
+    - surface: Integrations (connected social/analytics/ad accounts)
+      operation: disconnect
+      operation_id: null
+      window: null
+      docs: https://github.com/luminarylane/docs/blob/main/integrations.md
+      note: '"You can disconnect any integration at any time from the same screen."'
+    - surface: Subscription
+      operation: cancel (plan stays active to period end); refund within 14 days of initial purchase
+      operation_id: null
+      window: 14 days of initial purchase (refund); end of current billing period (cancellation)
+      docs: https://www.luminarylane.app/refund-policy/
+      note: Commercial reversal, not an API operation; recorded because it is the only reversal with a stated window.
+  grade_basis: >-
+    Reversal paths exist and are documented (approval-gate dismissal, integration disconnect, plan
+    cancellation), but no post-execution reversal of a published post, sent email or run cycle is
+    documented and no window is stated for any API-level reversal, so the grade is documented (0.4), not
+    verified. The 14-day window belongs to the refund policy, not to a write operation, and is not
+    counted toward verified.
+dry_run_mode:
+  available: unknown
+  note: >-
+    The product model itself is proposal-first — Lane "proposes actions for approval" and the Discover
+    plan is scoped to "discovery and proposals" — which functions as a rehearsal, but no dry_run flag or
+    preview tool is documented on the MCP surface.
+approval_model:
+  human_in_the_loop: true
+  docs: https://github.com/luminarylane/docs/blob/main/brand-onboarding.md
+  quote: 'Lane drafts; you decide. Posts, emails, campaigns, and outreach all wait in your approval queue until you say go.'

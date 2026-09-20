@@ -1,18 +1,76 @@
 aid: luminarylane-app
 name: Luminary Lane
-description: 'Luminary Lane is a company surfaced via the API Evangelist harvest backlog (source: a2a-registry)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Luminary Lane (a product of Lumi5 Labs Pte. Ltd., Singapore) is an agentic AI marketing platform built
+  around Lane, a "Chief Marketing AI-Agent" that reads a company's brand foundation, proposes channel tests
+  across the 19-channel Traction framework, drafts content and campaigns, and executes approved work through
+  connected LinkedIn, Facebook, Instagram, X, Bluesky, YouTube, WordPress, Sanity, GA4, Search Console and
+  Google Ads accounts — every consequential action waiting in a human approval queue. It is sold as a
+  self-serve monthly subscription priced in weekly "Lane Cycles" (Discover $100/mo to Agency $3,500/mo). The
+  machine-facing surface is a remote Model Context Protocol server at mcp.luminarylane.app/mcp exposing 46
+  workspace tools behind OAuth 2.1 (RFC 8414/9728/7591 discovery) or a per-user API key, plus an A2A agent
+  card, two llms.txt files, a Claude Cowork plugin with provider-published skills, and fourteen open-source
+  stdio MCP servers on npm and PyPI. No OpenAPI, GraphQL, AsyncAPI or SOAP contract is published.
+image: https://www.luminarylane.app/images/logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/luminarylane-app/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:a2a-registry
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
+x-legal-name: Lumi5 Labs Pte. Ltd.
+x-headquarters: Singapore
 specificationVersion: '0.20'
 created: '2026-09-19'
 modified: '2026-09-19'
 tags:
 - Company
-apis: []
+- Marketing
+- Marketing Automation
+- AI Agents
+- agent-native
+- MCP
+- A2A
+- Brand Management
+- Content Generation
+- Campaign Management
+- Social Media
+- SaaS
+apis:
+- name: Luminary Lane MCP Server
+  description: >-
+    Remote Model Context Protocol server (Streamable HTTP, server name luminary-mcp-server v1.0.0) that
+    exposes a customer's Lane workspace to MCP clients: brands, brand foundation (voice, personas,
+    objectives, competitors, market events), traction and presence plans and settings, the action approval
+    queue (review, update content, report outcomes, send notifications and outreach), integrations, cycle
+    history and an on-demand lane_run_now. 46 tool names are published by the anonymous /health endpoint;
+    tool schemas require an authenticated tools/list. Authenticated with an OAuth 2.1 bearer token from the
+    co-hosted authorization server (authorization_code + PKCE, dynamic client registration) or a per-user
+    X-API-Key (ll_mcp_ prefix) generated in the product app.
+  image: https://www.luminarylane.app/images/logo.svg
+  humanURL: https://www.luminarylane.app/from-claude/
+  baseURL: https://mcp.luminarylane.app/mcp
+  tags:
+  - MCP
+  - agent-native
+  - Marketing
+  - Brand Management
+  properties:
+  - type: MCPServer
+    url: mcp/luminarylane-app-mcp.yml
+  - type: MCPServer
+    url: https://mcp.luminarylane.app/mcp
+  - type: Documentation
+    url: https://github.com/luminarylane/lane-plugin
+  - type: Authentication
+    url: authentication/luminarylane-app-authentication.yml
+  - type: OAuthScopes
+    url: scopes/luminarylane-app-scopes.yml
+  - type: Conventions
+    url: conventions/luminarylane-app-conventions.yml
+  - type: ErrorCatalog
+    url: errors/luminarylane-app-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/luminarylane-app-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -21,3 +79,78 @@ maintainers:
 common:
 - type: Website
   url: https://luminarylane.app/
+- type: Documentation
+  url: https://github.com/luminarylane/docs
+- type: GettingStarted
+  url: https://github.com/luminarylane/docs/blob/main/brand-onboarding.md
+- type: Pricing
+  url: https://www.luminarylane.app/pricing/
+- type: Plans
+  url: plans/luminarylane-app-plans-pricing.yml
+- type: FAQ
+  url: https://www.luminarylane.app/faq/
+- type: Support
+  url: https://www.luminarylane.app/support/
+- type: Contact
+  url: https://www.luminarylane.app/contact/
+- type: Blog
+  url: https://www.luminarylane.app/blog/
+- type: BlogRSS
+  url: https://www.luminarylane.app/rss.xml
+- type: ChangeLog
+  url: changelog/luminarylane-app-changelog.yml
+- type: ChangeLog
+  url: https://github.com/luminarylane/docs/releases
+- type: GitHubOrganization
+  url: https://github.com/luminarylane
+- type: SignUp
+  url: https://app.luminarylane.app/login
+- type: Login
+  url: https://app.luminarylane.app/login
+- type: TermsOfService
+  url: https://www.luminarylane.app/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.luminarylane.app/privacy-policy/
+- type: CookiePolicy
+  url: https://www.luminarylane.app/cookie-policy/
+- type: RefundPolicy
+  url: https://www.luminarylane.app/refund-policy/
+- type: PressKit
+  url: https://www.luminarylane.app/press/
+- type: Careers
+  url: https://www.luminarylane.app/careers/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/luminary-lane/
+- type: Twitter
+  url: https://x.com/LuminaryLaneCMO
+- type: Instagram
+  url: https://www.instagram.com/luminarylane.app
+- type: LLMsTxt
+  url: llms/luminarylane-app-llms.txt
+- type: LLMsTxt
+  url: https://www.luminarylane.app/llms.txt
+- type: AgentCard
+  url: a2a/luminarylane-app-a2a.yml
+- type: AgentCard
+  url: https://luminarylane.app/.well-known/agent-card.json
+- type: WellKnown
+  url: well-known/luminarylane-app-well-known.yml
+- type: Packages
+  url: packages/luminarylane-app-packages.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Conformance
+  url: conformance/luminarylane-app-conformance.yml
+- type: Lifecycle
+  url: lifecycle/luminarylane-app-lifecycle.yml
+- type: DomainSecurity
+  url: security/luminarylane-app-domain-security.yml
+- type: RegulatoryPosture
+  url: regulatory/luminarylane-app-regulatory-posture.yml
+- type: DataSubjectRequest
+  url: https://www.luminarylane.app/privacy-policy/
+x-enrichment:
+  date: '2026-09-19'
+  status: enriched
+  artifacts_added: 27
+  pass: local-v3

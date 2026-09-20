@@ -1,0 +1,66 @@
+generated: '2026-09-19'
+method: searched
+probe: true
+source: >-
+  https://www.luminarylane.app/privacy-policy/, /cookie-policy/, /terms-of-use/, /faq/ (read 2026-09-19)
+  plus live probes of the conventional paths listed below on luminarylane.app and www.luminarylane.app
+summary: >-
+  One verified signal. The Privacy Policy carries a substantive "Your Privacy Rights" section (access and
+  correction, deletion, no-training restriction, marketing preferences), names the channel to exercise
+  them (email) and states a deletion timeline ("we will remove your data within 30 days unless required
+  by law"). Nothing else on the list is published: no accessibility conformance report, no subprocessor
+  table, no DPA, no SBOM, no transparency report, no data-residency statement, no GPC statement, no
+  incident-notification SLA. The provider does publish two AI-use statements that are NOT recorded as
+  signals because they do not meet the bar: a training-use disclosure ("By default, we may use brand
+  inputs, interactions, and generated work to improve Luminary Lane and its AI capabilities", opt-out
+  by written agreement) is a data-use term, not an AB 2013 training-data summary; and the Terms'
+  "AI-generated content" language is a liability clause, not an Art. 50 transparency page.
+signals:
+  data_subject_request:
+    url: https://www.luminarylane.app/privacy-policy/
+    channel: email
+    rights_stated:
+      - Access & Correction
+      - Data Deletion
+      - No-Training Restrictions
+      - Marketing Preferences
+    stated_timeline: 'If you request deletion of your account, we will remove your data within 30 days unless required by law.'
+    evidence:
+      - source: https://www.luminarylane.app/privacy-policy/
+        section: Your Privacy Rights
+        quote: 'Depending on your location, you may have the following rights over your data: Access & Correction ... Data Deletion ... No-Training Restrictions ... Marketing Preferences ... To exercise these rights, contact us at [email]'
+      - source: https://www.luminarylane.app/faq/
+        quote: 'You can request complete data deletion by contacting us. We will remove your data within 30 days as outlined in our Privacy Policy.'
+    note: A published rights list with a channel and a timeline; no self-service request form or API endpoint exists.
+not_recorded:
+  training_use_disclosure:
+    url: https://www.luminarylane.app/privacy-policy/
+    quote: 'By default, we may use brand inputs, interactions, and generated work to improve Luminary Lane and its AI capabilities.'
+    why_not_a_signal: A customer-data training-use term with a contractual opt-out; not a training-data summary of the models the provider builds on.
+  children:
+    quote: 'Luminary Lane is not intended for users under 13 years of age. We do not knowingly collect personal data from children.'
+    why_not_a_signal: A COPPA-style exclusion statement, not an age-assurance mechanism.
+  cookie_retention:
+    url: https://www.luminarylane.app/cookie-policy/
+    quote: 'Analytics Cookies: Up to 26 months; Functional Cookies: Up to 12 months; Marketing Cookies: Up to 12 months'
+    why_not_a_signal: Cookie retention periods; none of the listed signal types.
+  soc2:
+    url: https://www.luminarylane.app/faq/
+    quote: 'Luminary Lane is not yet SOC 2 attested.'
+    why_not_a_signal: Recorded in conformance/ as the provider's own negative statement.
+probed_paths:
+  - {url: 'https://luminarylane.app/accessibility', status: 404}
+  - {url: 'https://luminarylane.app/legal/subprocessors', status: 404}
+  - {url: 'https://luminarylane.app/legal/dpa', status: 404}
+  - {url: 'https://luminarylane.app/privacy/requests', status: 404}
+  - {url: 'https://luminarylane.app/transparency', status: 404}
+  - {url: 'https://luminarylane.app/trust', status: 404}
+  - {url: 'https://luminarylane.app/security', status: 404}
+  - {url: 'https://www.luminarylane.app/accessibility', status: 404}
+  - {url: 'https://www.luminarylane.app/legal/subprocessors', status: 404}
+  - {url: 'https://www.luminarylane.app/legal/dpa', status: 404}
+  - {url: 'https://www.luminarylane.app/privacy/requests', status: 404}
+  - {url: 'https://www.luminarylane.app/transparency', status: 404}
+  - {url: 'https://www.luminarylane.app/trust', status: 404}
+  - {url: 'https://www.luminarylane.app/security', status: 404}
+  - {url: 'https://luminarylane.app/.well-known/security.txt', status: 404}

@@ -1,0 +1,86 @@
+generated: '2026-09-19'
+method: searched
+source: https://github.com/luminarylane/lane-plugin#setup
+docs: https://github.com/luminarylane/lane-plugin
+corroborating_sources:
+  - https://mcp.luminarylane.app/.well-known/oauth-authorization-server
+  - https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp
+  - https://app.luminarylane.app/api/health
+spec: null
+summary:
+  types:
+    - oauth2
+    - apiKey
+  transport: HTTPS only; Authorization Bearer header (OAuth) or X-API-Key header (static key)
+  note: >-
+    Luminary Lane publishes no OpenAPI, so this profile was built from the live MCP endpoint's
+    challenge and discovery documents plus the provider's own plugin README — derive-authentication.py
+    correctly reports 0 auth profiles for this repo. The one public API surface, the remote MCP server
+    at https://mcp.luminarylane.app/mcp, accepts two credential shapes: an OAuth 2.1 bearer token
+    minted by the authorization server co-hosted on mcp.luminarylane.app, or a static per-user API
+    key sent as X-API-Key. The product application itself (app.luminarylane.app) signs users in
+    through Auth0 — its /api/health check names an "auth0" dependency — but no Auth0 tenant metadata
+    is published and the app's API routes redirect anonymous callers to /login.
+schemes:
+  - name: OAuth2
+    type: oauth2
+    flows:
+      authorizationCode:
+        authorizationUrl: https://mcp.luminarylane.app/authorize
+        tokenUrl: https://mcp.luminarylane.app/token
+        refreshUrl: https://mcp.luminarylane.app/token
+        scopes: {}
+    pkce: S256 (required per code_challenge_methods_supported)
+    dynamic_client_registration: https://mcp.luminarylane.app/register
+    revocation: https://mcp.luminarylane.app/revoke
+    token_endpoint_auth_methods:
+      - client_secret_post
+      - none
+    description: >-
+      OAuth 2.1-style authorization-code flow advertised through RFC 8414 metadata; the MCP endpoint's
+      401 carries WWW-Authenticate: Bearer error="invalid_token", resource_metadata="https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp",
+      which is the MCP authorization specification's discovery hand-off. An anonymous RFC 7591 POST to
+      /register returned 201 with a client_id and client_secret (expiry ~30 days), so a client can
+      self-register without a developer account. No scopes_supported is published anywhere.
+    sources:
+      - https://mcp.luminarylane.app/.well-known/oauth-authorization-server
+      - https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp
+  - name: ApiKeyHeader
+    type: apiKey
+    in: header
+    name_header: X-API-Key
+    key_prefix: ll_mcp_
+    description: >-
+      Per-user API key generated at https://app.luminarylane.app/profile/api-keys (signed-in users;
+      the path 307s to /login anonymously). Keys start with "ll_mcp_" and are shown once. The
+      provider's lane-plugin ships an .mcp.json that sends the key as an X-API-Key header on the
+      Streamable HTTP connection, and its README bridges stdio-only clients with
+      npx -y mcp-remote https://mcp.luminarylane.app/mcp --header X-API-Key:${LANE_API_KEY}.
+      Observed: an invalid key returns 401 {"error":"Invalid API key"}.
+    sources:
+      - https://github.com/luminarylane/lane-plugin#setup
+      - https://github.com/luminarylane/lane-plugin/blob/main/.mcp.json
+credentials:
+  - id: oauth-access-token
+    header: 'Authorization: Bearer <access_token>'
+    prefix: null
+    use: MCP client sessions negotiated through the authorization-code + PKCE flow
+    issued_by: https://mcp.luminarylane.app/ (issuer)
+  - id: user-api-key
+    header: 'X-API-Key: ll_mcp_...'
+    prefix: ll_mcp_
+    use: MCP client sessions from Claude Desktop / Cowork and any client that can set a static header
+    issued_by: Luminary Lane app, Profile -> API Keys
+    note: Requires a paid Luminary Lane account with at least one brand set up (plugin prerequisites).
+observed_challenges:
+  - request: POST https://mcp.luminarylane.app/mcp (initialize, no credential)
+    status: 401
+    www_authenticate: 'Bearer error="invalid_token", error_description="Missing Authorization header", resource_metadata="https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp"'
+    body: '{"error":"invalid_token","error_description":"Missing Authorization header"}'
+  - request: 'POST https://mcp.luminarylane.app/mcp (tools/list, X-API-Key: invalid)'
+    status: 401
+    body: '{"error":"Invalid API key"}'
+  - request: GET https://app.luminarylane.app/api
+    status: 307
+    location: /login?callbackUrl=%2Fapi
+    note: The product app's own API is session-gated behind Auth0 login; no public reference exists.

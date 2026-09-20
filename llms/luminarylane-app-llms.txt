@@ -1,0 +1,128 @@
+# Luminary Lane
+
+> Luminary Lane is an agentic AI platform featuring Lane, a Chief Marketing AI-Agent who works with your team to find, test, and scale the marketing mix that creates traction.
+
+## Overview
+
+Luminary Lane provides Lane, a Chief Marketing AI-Agent for startups and SMEs working to find marketing channels that prove traction. Lane works through the web platform and can collaborate through Slack, Microsoft Teams, and WhatsApp. She coordinates 19 specialized marketing channel agents while keeping people in control of consequential work. Luminary Lane is also exploring account-focused marketing workflows with enterprise revenue teams.
+
+Lane helps teams:
+- Build a brand foundation and traction goal from their business context
+- Map the relevant marketing channels, choose bounded tests, and rule out weak bets early
+- Generate and coordinate approved work across content, search, paid acquisition, email, partnerships, events, and other channels
+- Keep human review and approval at the gate before agreed actions are put into motion
+- Measure evidence from each test and update the next version of the GTM motion
+
+## Core Pages
+
+- [Home](https://www.luminarylane.app/): Main landing page
+- [AI CMO](https://www.luminarylane.app/ai-cmo): Meet Lane — the Chief Marketing AI-Agent
+- [Features](https://www.luminarylane.app/features): 19 channel agents and approved marketing workflows across the marketing mix
+- [Pricing](https://www.luminarylane.app/pricing): Platform-guided traction engagements, custom-scoped to the brand, channels, workflows, and experiments
+- [AI Discoverability and A2A](https://www.luminarylane.app/a2a): Clear public discovery foundations and optional Agent-to-Agent capabilities
+- [Use Cases](https://www.luminarylane.app/use-cases): The teams Lane helps find traction today and the enterprise workflow being explored
+- [FAQ](https://www.luminarylane.app/faq): Onboarding, channel agents, pricing, budgets, approvals, ownership, data use, and GTM traction answers
+- [Contact](https://www.luminarylane.app/contact): Ask a pricing, workflow, partnership, or traction question by email
+- [Start a Conversation](https://www.luminarylane.app/get-started): Ask a pricing, workflow, or traction question by email; a call can be offered later if useful
+- [Support](https://www.luminarylane.app/support): Help with onboarding, approved workflows, budgets, privacy, and product questions
+
+## Who Lane Helps
+
+- [Agencies and Marketing Teams](https://www.luminarylane.app/usecase-agencies-and-marketing-teams)
+- [B2B and Professional Services](https://www.luminarylane.app/usecase-b2b-and-professional-services)
+- [Startups and Small Businesses](https://www.luminarylane.app/usecase-startups-and-small-businesses)
+- [AI-Native Startups](https://www.luminarylane.app/usecase-ai-native-startups)
+- [Enterprise Revenue Teams](https://www.luminarylane.app/usecase-enterprise-revenue-teams)
+
+## Blog
+
+Evidence-led field notes on agentic marketing, traction channels, brand foundations, and the operating systems teams use to learn what works.
+
+- [Blog Home](https://www.luminarylane.app/blog): All articles and insights
+
+### Recent Posts
+
+- [Luminary Lane 2.0: Self-Serve Lane Cycles, Live Today](https://www.luminarylane.app/blog/luminary-lane-2-0-self-serve-lane-cycles)
+- [Output Shape Is Cost: Why We Hand-Roll Our MCP Servers](https://www.luminarylane.app/blog/output-shape-is-cost-why-we-hand-roll-mcps)
+- [AI CMO Landscape 2026: 6 New Entrants, $30M Funded, and What They All Get Wrong](https://www.luminarylane.app/blog/ai-cmo-landscape-2026)
+- [The AI CMO Backlash Is Here — What Founders Actually Need](https://www.luminarylane.app/blog/ai-cmo-backlash-brand-parent)
+- [Why Building an AI Marketing Team with Claude Code Isn't Enough](https://www.luminarylane.app/blog/claude-code-marketing-team-not-enough)
+- [The First AI CMO to Die: What Icon AI's $12M Couldn't Buy](https://www.luminarylane.app/blog/icon-ai-first-ai-cmo-to-die)
+- [Greg Isenberg Gave OpenClaw One Job: Go Viral. Here's What Happens Next.](https://www.luminarylane.app/blog/greg-isenberg-openclaw-viral-marketing)
+- [The AI Brand Governance Gap: What HBR and Jasper Both Missed](https://www.luminarylane.app/blog/hbr-jasper-governance-gap)
+- [Oliver Henry's Larry on OpenClaw: 8M TikTok Views, Then It Broke](https://www.luminarylane.app/blog/from-larry-to-lane)
+- [a16z Says AI Copilots Are a Dead End. Kavak's CEO Proved It With 3,500 Employees.](https://www.luminarylane.app/blog/a16z-copilots-dead-end-kavak)
+
+### All Posts (55 total)
+
+- [Luminary Lane 2.0: Self-Serve Lane Cycles, Live Today](https://www.luminarylane.app/blog/luminary-lane-2-0-self-serve-lane-cycles)
+- [Output Shape Is Cost: Why We Hand-Roll Our MCP Servers](https://www.luminarylane.app/blog/output-shape-is-cost-why-we-hand-roll-mcps)
+- [AI CMO Landscape 2026: 6 New Entrants, $30M Funded, and What They All Get Wrong](https://www.luminarylane.app/blog/ai-cmo-landscape-2026)
+- [The AI CMO Backlash Is Here — What Founders Actually Need](https://www.luminarylane.app/blog/ai-cmo-backlash-brand-parent)
+- [Why Building an AI Marketing Team with Claude Code Isn't Enough](https://www.luminarylane.app/blog/claude-code-marketing-team-not-enough)
+- [The First AI CMO to Die: What Icon AI's $12M Couldn't Buy](https://www.luminarylane.app/blog/icon-ai-first-ai-cmo-to-die)
+- [Greg Isenberg Gave OpenClaw One Job: Go Viral. Here's What Happens Next.](https://www.luminarylane.app/blog/greg-isenberg-openclaw-viral-marketing)
+- [The AI Brand Governance Gap: What HBR and Jasper Both Missed](https://www.luminarylane.app/blog/hbr-jasper-governance-gap)
+- [Oliver Henry's Larry on OpenClaw: 8M TikTok Views, Then It Broke](https://www.luminarylane.app/blog/from-larry-to-lane)
+- [a16z Says AI Copilots Are a Dead End. Kavak's CEO Proved It With 3,500 Employees.](https://www.luminarylane.app/blog/a16z-copilots-dead-end-kavak)
+- [Why Vibe Marketing Won't Scale (And What Comes After)](https://www.luminarylane.app/blog/vibe-marketing-wont-scale)
+- [Dalton & Michael Say the AI Slop War Has Already Started. Here's How to Win Without Playing.](https://www.luminarylane.app/blog/yc-slop-vs-craft-ai-marketing)
+- [Rory Sutherland's Doorman Fallacy: What AI Marketing Gets Wrong About Automation](https://www.luminarylane.app/blog/rory-sutherland-doorman-fallacy-ai-marketing-automation)
+- [a16z Says Software Moats Survive AI. Here's Why Marketing Software Moats Don't.](https://www.luminarylane.app/blog/a16z-software-moats-survive-ai-marketing-moats-dont)
+- [What Is an AI CMO? The Shift From Tools to Brand Intelligence](https://www.luminarylane.app/blog/ai-cmo-from-marketing-tools-to-brand-parent)
+- [YC's New Motto: 'Make Something Agents Want' — Marketing Implications](https://www.luminarylane.app/blog/yc-ai-agent-economy-marketing)
+- [Rory Sutherland Says Spend 5% Irresponsibly. An AI Agent Makes That Free.](https://www.luminarylane.app/blog/rory-sutherland-luck-beats-logic-ai-marketing)
+- [a16z Says Humans Are for Ideas, AI Is for Execution. That's the Entire Case for an AI CMO.](https://www.luminarylane.app/blog/a16z-humans-ideas-ai-execution-marketing)
+- [YC's 20x Companies Automate Everything — Except Marketing](https://www.luminarylane.app/blog/yc-20x-companies-automate-everything-marketing)
+- [Steve Blank Says Your Agency Doesn't Really Work For You. AI Agents Will Replace Them.](https://www.luminarylane.app/blog/steve-blank-ai-agents-replace-service-providers)
+- [Rory Sutherland Is Right: Your AI CMO Shouldn't Cut Costs](https://www.luminarylane.app/blog/rory-sutherland-cost-reduction-ai-cmo)
+- [Dario Amodei Predicts a Country of Geniuses in a Data Center. Here's What That Means for Marketing.](https://www.luminarylane.app/blog/dario-amodei-country-of-geniuses-marketing-agents)
+- [Ben Evans Asks How OpenAI Will Compete. The Answer Is: It Won't — Vertical Agents Will.](https://www.luminarylane.app/blog/ben-evans-openai-compete-vertical-agents)
+- [a16z Says the Last Mile Is the Entire Problem. That's Why Marketing AI Must Be Vertical.](https://www.luminarylane.app/blog/a16z-vertical-software-ai-marketing-agents)
+- [More Software, Fewer Apps](https://www.luminarylane.app/blog/more-software-fewer-apps)
+- [The Buyer Journey Has Changed. Your Funnel Hasn't.](https://www.luminarylane.app/blog/buyer-journey-ai-native-era)
+- [Anthropic's Own Marketing Team Hit a Ceiling With Claude](https://www.luminarylane.app/blog/anthropic-marketing-team-claude-copilot-ceiling)
+- [Claude Has a Marketing Plugin. Here's Why That's Good News for AI-Native Marketing.](https://www.luminarylane.app/blog/claude-marketing-plugin-copilot-vs-cmo)
+- [Workflow Ownership for Marketing AI](https://www.luminarylane.app/blog/workflow-ownership-harvey-sierra-ai-cmo)
+- [Software Is Eating Marketing Labor: Our Response to a16z's AI Opportunity Thesis](https://www.luminarylane.app/blog/software-eating-marketing-labor-a16z-response)
+- [Why Cheaper AI Means More Marketing, Not Less: What a16z's Market Data Reveals](https://www.luminarylane.app/blog/jevons-paradox-marketing-a16z-state-of-markets)
+- [a16z Big Ideas 2026 Part 2: The Dynamic Agent Layer Is Coming for Marketing](https://www.luminarylane.app/blog/a16z-big-ideas-2026-part-2-dynamic-agent-layer)
+- [The AI Results Gap: Why 98% of Marketers Are Investing More But Most Still Can't Operationalize It](https://www.luminarylane.app/blog/ai-results-gap-marketing-2026)
+- [The 19 Traction Channels: A Complete Guide to Growth Beyond Content Marketing](https://www.luminarylane.app/blog/19-traction-channels-explained)
+- [Why We Built Lane: The Thesis Behind a Chief Marketing AI-Agent](https://www.luminarylane.app/blog/why-we-built-an-ai-cmo)
+- [State of Consumer AI 2025: What It Means for Marketing](https://www.luminarylane.app/blog/state-of-consumer-ai-2025)
+- [Why 95% of Enterprise AI Projects Fail (And Why That's Your Opportunity)](https://www.luminarylane.app/blog/enterprise-ai-fails-startup-opportunity)
+- [The Contrarian Bet in Marketing AI](https://www.luminarylane.app/blog/contrarian-bet-marketing-ai)
+- [Big Ideas 2026: Marketing in the Age of Agents](https://www.luminarylane.app/blog/big-ideas-2026-marketing-agents)
+- [The Anti-Palantir Model for Marketing AI](https://www.luminarylane.app/blog/anti-palantir-marketing-ai)
+- [When Marketing Agents Have Wallets: A2A + x402 and the Future of Agentic Commerce](https://www.luminarylane.app/blog/when-marketing-agents-have-wallets)
+- [Building is Easy Now. Getting Noticed is the Hard Part.](https://www.luminarylane.app/blog/building-is-easy-getting-noticed-is-hard)
+- [The AI-Native Cost Advantage: Why Fixed Beats Variable](https://www.luminarylane.app/blog/the-ai-native-cost-advantage-fixed-vs-variable)
+- [Cut Your CI/CD Costs by 90%: Self-Hosted Runners for GitHub Actions & GitLab CI](https://www.luminarylane.app/blog/self-hosted-ci-runner-github-gitlab)
+- [The AI-Native Startup Playbook: Marketing Without the Marketing Hire](https://www.luminarylane.app/blog/the-ai-native-startup-playbook-marketing-without-the-marketing-hire)
+- [Our Engineering Principles: 9 Ideas That Guide Every Line of Code](https://www.luminarylane.app/blog/engineering-principles)
+- [Building Your Full-Stack AI Team: Where Does Marketing Fit?](https://www.luminarylane.app/blog/building-your-full-stack-ai-team-where-does-marketing-fit)
+- [How AI Transforms Holiday Marketing: From Chaos to Calm](https://www.luminarylane.app/blog/how-ai-transforms-holiday-marketing-from-chaos-to-calm)
+- [Meet Lane: A Chief Marketing AI-Agent for Finding Traction](https://www.luminarylane.app/blog/ai-cmo-your-chief-marketing-officer-that-never-sleeps)
+- [AI Discoverability and A2A Marketing](https://www.luminarylane.app/blog/a2a-marketing-when-your-next-customer-is-an-ai-agent)
+- [Prompt Engineering Mastery: Unlock Your Brand's AI Potential in 2025](https://www.luminarylane.app/blog/prompt-engineering-mastery-unlock-your-brands-ai-potential-in-2024)
+- [Predictive Brand Analytics: How AI is Revolutionizing Customer Expectations](https://www.luminarylane.app/blog/predictive-brand-analytics-how-ai-is-revolutionizing-customer-expectations)
+- [The AI Brand Revolution: 5 Ways Artificial Intelligence is Redefining Brand Consistency in 2024](https://www.luminarylane.app/blog/the-ai-brand-revolution-5-ways-artificial-intelligence-is-redefining-brand-consistency-in-2024)
+- [Digital Brand Presence 2.0: Leveraging AI for Cross-Platform Content Harmony](https://www.luminarylane.app/blog/digital-brand-presence-2-0-leveraging-ai-for-cross-platform-content-harmony)
+- [Why Luminary Lane?](https://www.luminarylane.app/blog/why-luminary-lane)
+
+## Legal
+
+- [Privacy Policy](https://www.luminarylane.app/privacy-policy)
+- [Terms of Use](https://www.luminarylane.app/terms-of-use)
+- [Cookie Policy](https://www.luminarylane.app/cookie-policy)
+- [Refund Policy](https://www.luminarylane.app/refund-policy)
+
+## Technical
+
+- [RSS Feed](https://www.luminarylane.app/rss.xml): Subscribe to blog updates
+- [Sitemap](https://www.luminarylane.app/sitemap-index.xml): Full site structure
+- [A2A Agent Card](https://www.luminarylane.app/.well-known/agent-card.json): AI agent capability discovery (A2A protocol)
+
+---
+*Auto-generated at build time*

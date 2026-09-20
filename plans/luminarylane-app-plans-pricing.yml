@@ -1,0 +1,108 @@
+generated: '2026-09-19'
+method: searched
+source: https://www.luminarylane.app/pricing/
+docs: https://github.com/luminarylane/docs/blob/main/account-and-billing.md
+plan_count: 4
+currency: USD
+model: >-
+  Monthly subscription priced on "Lane Cycles" — scheduled operating passes per active brand/voice space
+  per week — plus a separately approved, capped external operating budget for AI generation, media, email
+  delivery, data providers and ad spend that is never billed as overage. Self-serve checkout via Stripe;
+  no sales call required. The plan is explicitly "not a token bundle". API/MCP access is not sold as a
+  separate tier: the remote MCP server is reached with a per-user API key from any paid account.
+plans:
+  - id: discover
+    name: Discover
+    price: 100.00
+    currency: USD
+    period: month
+    included:
+      - 1 active space (brand or voice)
+      - 1 Lane Cycle per week
+      - Max 1 cycle per space per week
+      - Personal first-run onboarding
+      - Discovery, recommendations and approvable action proposals
+      - Async workflow control in the platform
+    overage: none — cycles do not roll over; Lane pauses scheduled runs until the weekly budget reopens Monday
+    limits:
+      active_spaces: 1
+      cycles_per_week: 1
+      max_cycles_per_space_per_week: 1
+  - id: growth
+    name: Growth
+    price: 500.00
+    currency: USD
+    period: month
+    included:
+      - Up to 5 active spaces
+      - 5 Lane Cycles per week
+      - Platform chat and expert controls included
+      - Up to 2 cycles on one priority space in a week
+    overage: none
+    limits:
+      active_spaces: 5
+      cycles_per_week: 5
+      max_cycles_per_space_per_week: 2
+  - id: scale
+    name: Scale
+    price: 1500.00
+    currency: USD
+    period: month
+    included:
+      - Up to 15 active spaces
+      - 15 Lane Cycles per week
+      - Slack collaboration included
+      - Up to 3 cycles on one priority space in a week
+    overage: none
+    limits:
+      active_spaces: 15
+      cycles_per_week: 15
+      max_cycles_per_space_per_week: 3
+  - id: agency
+    name: Agency
+    price: 3500.00
+    currency: USD
+    period: month
+    included:
+      - Up to 35 active spaces
+      - 35 Lane Cycles per week
+      - Agency controls and portfolio operating capacity
+      - All collaboration channels included (Slack, Teams, WhatsApp)
+      - Up to 5 cycles on one priority space in a week
+    overage: none
+    limits:
+      active_spaces: 35
+      cycles_per_week: 35
+      max_cycles_per_space_per_week: 5
+add_ons:
+  - name: Extra space + weekly cycle
+    price: 100.00
+    period: month
+    adds: One more active brand or voice space and one Lane Cycle each week
+  - name: Expert controls
+    price: 100.00
+    period: month
+    adds: Direct channel and cadence selection while keeping approval guardrails
+  - name: Platform chat
+    price: 100.00
+    period: month
+    adds: Conversational control inside the Lane platform
+  - name: Team collaboration
+    price: 200.00
+    period: month
+    adds: Slack, Teams and WhatsApp collaboration for the team
+external_budget:
+  billed_as_overage: false
+  covers:
+    - AI text, image and video generation
+    - Advertising and media spend
+    - Email delivery, data providers and connected third-party tools
+  note: '"Lane never spends it without your approval, and it is never billed as Cycle overage."'
+billing:
+  processor: Stripe
+  cycle_window: Monday 00:00 to next Monday 00:00 in the account timezone; cycles do not roll over
+  founding_offer: 50% off the first month, one per account, card required (not a free trial)
+  free_tier: false
+  trial: false
+  cancellation: Plan stays active until the end of the current billing period
+  refund: Within 14 days of initial purchase (https://www.luminarylane.app/refund-policy/)

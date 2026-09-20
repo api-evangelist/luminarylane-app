@@ -1,0 +1,42 @@
+generated: '2026-09-19'
+method: searched
+source: https://github.com/luminarylane/docs/releases
+docs: https://www.luminarylane.app/blog/
+rss: https://www.luminarylane.app/rss.xml
+scheme: >-
+  No formal API changelog. Product change is announced as dated blog posts (RSS available) and the
+  end-user docs repository publishes GitHub Releases; each open-source MCP package carries its own
+  CHANGELOG.md and npm/PyPI release history.
+current_version:
+  mcp_server: 1.0.0
+  web_app: 0.1.0
+  site_build: v2026.08.23.248
+entries:
+  - date: '2026-08-14'
+    version: 'Luminary Lane 2.0'
+    title: 'Luminary Lane 2.0: Self-Serve Lane Cycles, Live Today'
+    url: https://www.luminarylane.app/blog/luminary-lane-2-0-self-serve-lane-cycles/
+    breaking: false
+    additions:
+      - Stripe-native self-serve signup and checkout (no sales call)
+      - Lane Cycle pricing — Discover $100/mo (1 space, 1 cycle/week) to Agency $3,500/mo (35 spaces, 35 cycles/week)
+      - Two operating layers made explicit — Traction (channel strategy) and Presence (weekly cadence)
+      - Founding offer — first month at half price, one per account
+  - date: '2026-07-22'
+    version: v0.1.0
+    title: 'v0.1.0 — Initial documentation'
+    url: https://github.com/luminarylane/docs/releases/tag/v0.1.0
+    breaking: false
+    additions:
+      - First public release of end-user documentation — account & billing, brand onboarding, integrations guides
+  - date: '2026-04-11'
+    version: null
+    title: 'Output Shape Is Cost: Why We Hand-Roll Our MCP Servers'
+    url: https://www.luminarylane.app/blog/output-shape-is-cost-why-we-hand-roll-mcps/
+    breaking: false
+    additions:
+      - Engineering post announcing the move from a third-party MCP provider to first-party, hand-rolled MCP servers returning compact markdown (the open-source @luminarylane/* servers)
+package_release_activity:
+  note: Latest registry publish dates read 2026-09-19; see packages/luminarylane-app-packages.yml for per-package version/published.
+  newest_npm_publish: '2026-08-25'
+  newest_pypi_publish: '2026-08-06'

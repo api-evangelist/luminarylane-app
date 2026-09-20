@@ -1,0 +1,206 @@
+generated: '2026-09-19'
+method: probed
+source: >-
+  Live GET probes of the named /.well-known/* path list on luminarylane.app, www.luminarylane.app,
+  app.luminarylane.app and mcp.luminarylane.app on 2026-09-19. Every row is a request that was
+  actually issued and every status is the one returned.
+summary:
+  hosts_probed: 4
+  documents_served: 5
+  path_echo_control: passed
+  path_echo_control_note: >-
+    /.well-known/luminarylane-app-negative-control-4b7d2e.json returned a real 404 on all four hosts,
+    so no 200 below is a catch-all echo. The apex/www 404 bodies are the Astro site's 404 page (~20 KB
+    HTML); the app host's are the Next.js 404 page (~13.7 KB); the MCP host's are Express "Cannot GET".
+  note: >-
+    Two real discovery surfaces. The marketing hosts serve an A2A agent card (captured in a2a/). The
+    MCP host mcp.luminarylane.app serves RFC 8414 authorization-server metadata (with an RFC 7591
+    dynamic registration endpoint that answered 201) and RFC 9728 protected-resource metadata at the
+    path-suffixed location /.well-known/oauth-protected-resource/mcp, which is the location RFC 9728
+    section 3 prescribes for a resource whose identifier carries a path (https://mcp.luminarylane.app/mcp)
+    and the exact URL the MCP endpoint's WWW-Authenticate resource_metadata parameter names. The app
+    host serves a legacy OpenAI ai-plugin.json manifest that itself states no plugin API is exposed.
+    No host serves security.txt, openid-configuration, api-catalog, apis.json, ucp.json, acp.json or
+    aauth-resource.json.
+hosts:
+- host: luminarylane.app
+  role: Apex / marketing site (Cloudflare Pages, Astro)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/api-catalog.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    file: ../a2a/luminarylane-app-agent-card.json
+    standard: A2A Agent Card
+    note: Captured and graded in a2a/luminarylane-app-a2a.yml (grade flavored — no protocolVersion).
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: ../llms/luminarylane-app-llms.txt
+    standard: llms.txt
+- host: www.luminarylane.app
+  role: Canonical www alias of the marketing site (same Pages deployment)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/api-catalog.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    file: ../a2a/luminarylane-app-agent-card.json
+    standard: A2A Agent Card
+    note: Byte-identical to the apex copy.
+  - path: /.well-known/agent.json
+    status: 404
+- host: app.luminarylane.app
+  role: Product application (Next.js; unauthenticated paths 307 to /login, Auth0-backed per /api/health)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: application/json; charset=UTF-8
+    file: luminarylane-app-ai-plugin.json
+    standard: OpenAI plugin manifest (schema_version v1, legacy)
+    note: >-
+      auth.type none; no api block. description_for_model states "No authenticated plugin API is
+      currently exposed." A real document, but it advertises no callable surface.
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 307
+    note: Redirects to /login?callbackUrl=%2Fapis.json — the app's auth wall, not a document.
+  - path: /apis.yml
+    status: 307
+    note: Redirects to /login.
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=UTF-8
+    file: ../llms/luminarylane-app-app-llms.txt
+    standard: llms.txt
+    note: A second, older llms.txt describing the product as a LinkedIn-focused automation platform; the marketing-host llms.txt is the current one.
+- host: mcp.luminarylane.app
+  role: Remote MCP server host (Express; MCP endpoint at /mcp)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: luminarylane-app-oauth-authorization-server.json
+    standard: RFC 8414
+    note: >-
+      issuer https://mcp.luminarylane.app/; authorization_code + refresh_token grants; PKCE S256;
+      token_endpoint_auth_methods client_secret_post and none; revocation_endpoint; registration_endpoint
+      https://mcp.luminarylane.app/register (RFC 7591 — an anonymous POST returned 201 with a client_id).
+      No scopes_supported, no jwks_uri, no userinfo.
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    note: The bare path 404s; the document lives at the RFC 9728 path-suffixed location below.
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: luminarylane-app-oauth-protected-resource.json
+    standard: RFC 9728
+    note: >-
+      resource https://mcp.luminarylane.app/mcp, authorization_servers [https://mcp.luminarylane.app/],
+      resource_name "Luminary Lane MCP Server". This is the URL the MCP endpoint's 401 names in
+      WWW-Authenticate: Bearer error="invalid_token", resource_metadata="...". No scopes_supported.
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /health
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: ../mcp/luminarylane-app-mcp-health.json
+    standard: non-standard health endpoint
+    note: Anonymous; returns server name luminary-mcp-server, version 1.0.0 and the 46 registered tool names (no schemas).

@@ -1,0 +1,114 @@
+generated: '2026-09-19'
+method: probed
+source: >-
+  Live probes of mcp.luminarylane.app, luminarylane.app, www.luminarylane.app and app.luminarylane.app on
+  2026-09-19, plus the provider's FAQ (https://www.luminarylane.app/faq/) for compliance claims.
+summary: >-
+  No OpenAPI, GraphQL, AsyncAPI, gRPC or SOAP contract is published, so the standards below are the
+  protocol-level ones the provider's live agent surfaces demonstrate. The MCP server's authorization
+  stack is spec-shaped (RFC 8414 + RFC 9728 + RFC 7591 + PKCE); the A2A card is present but not
+  conformant; no domain standard applies to an AI-marketing-agent market, and none is claimed, so the
+  domain_standard slot is left empty rather than filled. The provider states it is NOT yet SOC 2
+  attested.
+standards:
+  - id: mcp-streamable-http
+    name: Model Context Protocol (Streamable HTTP transport with OAuth authorization)
+    conforms: true
+    evidence: >-
+      POST https://mcp.luminarylane.app/mcp with Accept application/json, text/event-stream returns a
+      401 whose WWW-Authenticate header carries resource_metadata pointing at an RFC 9728 document, which
+      is the MCP authorization specification's mandated discovery hand-off; GET without Mcp-Session-Id
+      returns 400 {"error":"Invalid session"}; /health reports server luminary-mcp-server 1.0.0 with 46 tools.
+      The provider's own .mcp.json declares type http for this URL.
+    caveat: The protocol revision negotiated by initialize could not be read because initialize itself is authenticated.
+  - id: rfc9728
+    name: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    conforms: true
+    evidence: >-
+      https://mcp.luminarylane.app/.well-known/oauth-protected-resource/mcp returned 200 application/json
+      with resource, authorization_servers and resource_name. The path-suffixed location is the one RFC
+      9728 section 3 prescribes for a resource identifier that carries a path component, and it is the
+      exact URL the endpoint's 401 names. (The bare /.well-known/oauth-protected-resource 404s, which is
+      correct for a resource identifier with a path.)
+    file: well-known/luminarylane-app-oauth-protected-resource.json
+  - id: rfc8414
+    name: RFC 8414 OAuth 2.0 Authorization Server Metadata
+    conforms: true
+    evidence: >-
+      https://mcp.luminarylane.app/.well-known/oauth-authorization-server returned 200 with issuer,
+      authorization_endpoint, token_endpoint, revocation_endpoint, registration_endpoint,
+      grant_types_supported, response_types_supported, code_challenge_methods_supported and
+      token_endpoint_auth_methods_supported.
+    caveat: No jwks_uri, no scopes_supported, and the issuer is written with a trailing slash (https://mcp.luminarylane.app/).
+    file: well-known/luminarylane-app-oauth-authorization-server.json
+  - id: rfc7591
+    name: RFC 7591 OAuth 2.0 Dynamic Client Registration
+    conforms: true
+    evidence: >-
+      registration_endpoint https://mcp.luminarylane.app/register is advertised in the RFC 8414 document
+      and an anonymous POST {"client_name":..., "redirect_uris":[...]} returned 201 with client_id,
+      client_id_issued_at, client_secret and client_secret_expires_at. (The issued credential was not
+      retained.)
+  - id: oauth2
+    name: OAuth 2.0 / 2.1 authorization code with PKCE
+    conforms: true
+    evidence: >-
+      grant_types_supported [authorization_code, refresh_token], response_types_supported [code],
+      code_challenge_methods_supported [S256], token_endpoint_auth_methods_supported [client_secret_post,
+      none] per the authorization-server metadata; GET /authorize without client_id returns 400
+      invalid_request with a zod validation body, confirming a live endpoint.
+  - id: rfc7636
+    name: RFC 7636 PKCE
+    conforms: true
+    evidence: code_challenge_methods_supported [S256] in the RFC 8414 document; no plain method is offered.
+  - id: oidc
+    name: OpenID Connect Discovery 1.0
+    conforms: false
+    evidence: /.well-known/openid-configuration returned 404 on all four hosts; the authorization server publishes no jwks_uri or userinfo_endpoint.
+  - id: a2a
+    name: A2A Agent Card (A2A 1.0.0)
+    conforms: false
+    evidence: >-
+      https://luminarylane.app/.well-known/agent-card.json returned 200 with a real card (capabilities
+      object, six skills) but no protocolVersion in any revision's location and no callable endpoint
+      (POST to the declared url returns 405). Graded flavored in a2a/luminarylane-app-a2a.yml.
+    file: a2a/luminarylane-app-a2a.yml
+  - id: llms-txt
+    name: llms.txt
+    conforms: true
+    evidence: >-
+      https://www.luminarylane.app/llms.txt returned 200 text/plain with the H1 + blockquote + H2 link-list
+      shape (Core Pages, Who Lane Helps, Blog, Legal, Technical); a second llms.txt is served from
+      app.luminarylane.app.
+    file: llms/luminarylane-app-llms.txt
+  - id: rfc9116
+    name: RFC 9116 security.txt
+    conforms: false
+    evidence: /.well-known/security.txt returned 404 on all four hosts.
+  - id: rfc9727
+    name: RFC 9727 API Catalog
+    conforms: false
+    evidence: /.well-known/api-catalog returned 404 on all four hosts.
+  - id: apis-json
+    name: APIs.json
+    conforms: false
+    evidence: /apis.json, /apis.yml and /.well-known/apis.json returned 404 on the marketing and MCP hosts and 307-to-login on the app host.
+  - id: rfc9457
+    name: RFC 9457 Problem Details
+    conforms: false
+    evidence: >-
+      Every observed error is a bare {"error": ..., "error_description": ...} JSON object with content-type
+      application/json (RFC 6750 shape on the 401s), never application/problem+json. See errors/.
+  - id: soc2
+    name: SOC 2
+    conforms: false
+    evidence: >-
+      The provider's FAQ states verbatim "We are working toward SOC 2 readiness for customers who require
+      formal security assurance; Luminary Lane is not yet SOC 2 attested." (https://www.luminarylane.app/faq/,
+      section 4 Security & Privacy). Recorded as the provider's own statement; no trust center or report exists.
+domain_standard:
+  applies: false
+  note: >-
+    The provider's market (AI marketing agents / brand automation) has no sector interchange standard of
+    the SCIM / OData / OpenRTB / FHIR kind, and the provider declares none. Reward-only check; left empty
+    on purpose rather than filled with a near-miss.
