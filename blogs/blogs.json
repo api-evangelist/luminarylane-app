@@ -1,0 +1,28 @@
+{
+  "repo": "luminarylane-app",
+  "feeds": [
+    {
+      "source": "https://www.luminarylane.app/blog/",
+      "feed_url": "https://www.luminarylane.app/blog/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.luminarylane.app/contact/",
+      "feed_url": "https://www.luminarylane.app/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.luminarylane.app/rss.xml",
+      "feed_url": "https://www.luminarylane.app/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "post_count": 50,
+  "fetched": "2026-10-03T12:30:02Z"
+}
