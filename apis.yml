@@ -96,6 +96,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/luminarylane-app-rate-limits.yml
 - type: Website
   url: https://luminarylane.app/
 - type: Documentation
