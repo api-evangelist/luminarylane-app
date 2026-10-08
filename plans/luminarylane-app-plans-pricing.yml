@@ -106,3 +106,38 @@ billing:
   trial: false
   cancellation: Plan stays active until the end of the current billing period
   refund: Within 14 days of initial purchase (https://www.luminarylane.app/refund-policy/)
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units: []
+  plans:
+  - name: Discover
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Growth
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Scale
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Agency
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
