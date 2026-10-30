@@ -64,5 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Luminary Lane is a company surfaced via the API Evangelist harvest backlog (source: a2a-registry) and added to the network as a stub for full-pipeline profiling.
-- https://luminarylane.app/
+Luminary Lane (a product of Lumi5 Labs Pte. Ltd., Singapore) is an agentic AI marketing platform built around Lane, a "Chief Marketing AI-Agent" that reads a company's brand foundation, proposes channel tests across the 19-channel Traction framework, drafts content and campaigns, and executes approved work through connected LinkedIn, Facebook, Instagram, X, Bluesky, YouTube, WordPress, Sanity, GA4, Search Console and Google Ads accounts — every consequential action waiting in a human approval queue. It is sold as a self-serve monthly subscription priced in weekly "Lane Cycles" (Discover $100/mo to Agency $3,500/mo). The machine-facing surface is a remote Model Context Protocol server at mcp.luminarylane.app/mcp exposing 46 workspace tools behind OAuth 2.1 (RFC 8414/9728/7591 discovery) or a per-user API key, plus an A2A agent card, two llms.txt files, a Claude Cowork plugin with provider-published skills, and fourteen open-source stdio MCP servers on npm and PyPI. No OpenAPI, GraphQL, AsyncAPI or SOAP contract is published.
+
+**Areas:** Company · Marketing · Marketing Automation · AI Agents · Agent-Native · MCP · A2A · Brand Management · Content Generation · Campaign Management · Social Media · Software-as-a-Service
+
+## Luminary Lane on APIs.io
+
+Everything profiled for Luminary Lane is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/luminarylane-app/](https://apis.io/providers/luminarylane-app/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Luminary Lane MCP Server](https://apis.io/apis/luminarylane-app/luminary-lane-mcp-server/) — Remote Model Context Protocol server (Streamable HTTP, server name luminary-mcp-server v1.0.0) that exposes a customer's Lane workspace to MCP clients:…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [luminarylane-app-mcp.yml](https://apis.io/servers/luminarylane-app/luminarylane-app-mcp-yml/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Luminarylane App Authentication](https://apis.io/security/luminarylane-app/luminarylane-app-authentication/)
+- [Luminarylane App Domain Security](https://apis.io/security/luminarylane-app/luminarylane-app-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Luminarylane App Scopes](https://apis.io/scopes/luminarylane-app/luminarylane-app-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Luminarylane App Plans Pricing](https://apis.io/plans/luminarylane-app/luminarylane-app-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Luminarylane App Rate Limits](https://apis.io/rate-limits/luminarylane-app/luminarylane-app-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://luminarylane.app/)
+- [Documentation](https://github.com/luminarylane/docs)
+- [Getting started](https://github.com/luminarylane/docs/blob/main/brand-onboarding.md)
+- [Pricing](https://www.luminarylane.app/pricing/)
+- [Sign up](https://app.luminarylane.app/login)
+- [Support](https://www.luminarylane.app/support/)
+- [Changelog](https://github.com/luminarylane/docs/releases)
+- [Blog](https://www.luminarylane.app/blog/)
+- [Terms of service](https://www.luminarylane.app/terms-of-use/)
+- [Privacy policy](https://www.luminarylane.app/privacy-policy/)
+- [GitHub](https://github.com/luminarylane)
+
+## API Evangelist rating
+
+**Kin Score 40.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 47.6 |
+| Access clarity | 76.3 |
+
+**Agent readiness 32.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | flavored (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 38.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/luminarylane-app/](https://apis.io/providers/luminarylane-app/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Luminary Lane: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/luminarylane-app/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
